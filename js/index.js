@@ -24,7 +24,7 @@ function startTimer() {
 
 function stopTimer() {
 	$('#start_stop').html('Start');
-	
+
 	clearInterval(timer);
 	timer = false;
 }
@@ -46,7 +46,7 @@ function handleOperation(typeThis, operator) {
 		}
 
 		$('#'+typeThis+'-length').html(time[typeThis].getHours() === 1 ? 60 : time[typeThis].getMinutes());
-		
+
 		if ((time[typeThis].getHours() === 1 ? 60 : time[typeThis].getMinutes()) === 1) {
 			$('#'+typeThis+'-unit').html('minute');
 		} else {
@@ -69,14 +69,14 @@ function pad(n) {
 $(document).ready(function() {
 	$('#reset').click(function() {
 		stopBeep();
-		
+
 		if (timer) {
 			stopTimer();
 		}
-		
+
 		type = 'session';
 		time = { session: new Date(0, 0, 0, 0, 25), break: new Date(0, 0, 0, 0, 5) };
-		
+
 		$('#timer-label').html('Session');
 		$('#time-left').html('25:00');
 		$('#session-length').html(25);
@@ -95,15 +95,15 @@ $(document).ready(function() {
 	$('#session-increment').click(function() {
 		handleOperation('session', '+');
 	});
-	
+
 	$('#session-decrement').click(function() {
 		handleOperation('session', '-');
 	});
-	
+
 	$('#break-increment').click(function() {
 		handleOperation('break', '+');
 	});
-	
+
 	$('#break-decrement').click(function() {
 		handleOperation('break', '-');
 	});
