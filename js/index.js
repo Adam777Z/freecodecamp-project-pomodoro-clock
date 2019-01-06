@@ -7,7 +7,7 @@ var time = {
 	break: new Date(0, 0, 0, 0, 5)
 };
 var timer = false;
-var beep = $('#beep')[0];
+var beep;
 
 function startTimer() {
 	$('#start_stop').html('Stop');
@@ -70,6 +70,8 @@ function pad(n) {
 }
 
 $(document).ready(function() {
+	beep = $('#beep')[0];
+
 	$('#reset').click(function() {
 		stopBeep();
 
