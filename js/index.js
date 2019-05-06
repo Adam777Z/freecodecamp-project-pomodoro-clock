@@ -89,6 +89,7 @@ $(document).ready(function() {
 		$('#time-left').html('25:00');
 		$('#session-length').html(25);
 		$('#break-length').html(5);
+		$('#session-unit, #break-unit').html('minutes');
 	});
 
 	$('#start_stop').click(function() {
