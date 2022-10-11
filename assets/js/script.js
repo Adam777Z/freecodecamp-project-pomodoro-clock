@@ -49,12 +49,7 @@ function handleOperation(typeThis, operator) {
 		}
 
 		document.querySelector('#' + typeThis + '-length').textContent = (time[typeThis].getHours() === 1 ? 60 : time[typeThis].getMinutes());
-
-		if ((time[typeThis].getHours() === 1 ? 60 : time[typeThis].getMinutes()) === 1) {
-			document.querySelector('#' + typeThis + '-unit').textContent = 'minute';
-		} else {
-			document.querySelector('#' + typeThis + '-unit').textContent = 'minutes';
-		}
+		document.querySelector('#' + typeThis + '-unit').textContent = 'minute' + (((time[typeThis].getHours() === 1 ? 60 : time[typeThis].getMinutes()) > 1) ? 's' : '');
 	}
 }
 
