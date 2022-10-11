@@ -14,54 +14,52 @@
 <body>
 	<div class="container">
 		<div class="row justify-content-center">
-			<div class="col-5">
-				<div class="jumbotron p-4">
-					<div class="container">
-						<h1 id="title" class="text-center">Pomodoro Clock</h1>
-						<div class="row mb-2">
-							<div class="col">
-								<div class="row">
-									<div class="col text-center align-self-center">
-										<button type="button" id="start_stop" class="btn btn-light">Start</button>
-									</div>
-									<div class="col text-center align-self-center">
-										<div class="card bg-light">
-											<div class="card-body">
-												<div id="timer-label" class="font-weight-bold text-center m-0">Session</div>
-												<h5 id="time-left" class="card-title text-center m-0">25:00</h5>
-											</div>
-										</div>
-									</div>
-									<div class="col text-center align-self-center">
-										<button type="button" id="reset" class="btn btn-dark">Reset</button>
-									</div>
+			<div class="col">
+				<div class="p-4 my-4 bg-light-2 rounded-3">
+					<h1 id="title" class="text-center">Pomodoro Clock</h1>
+					<div class="row mb-2">
+						<div class="col">
+							<div class="row">
+								<div class="col text-center align-self-center">
+									<button type="button" id="start_stop" class="btn btn-light">Start</button>
 								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col">
-								<div class="row">
-									<div class="col text-center">
-										<div id="session-label" class="font-weight-bold">Session Length</div>
-										<span id="session-length">25</span> <span id="session-unit">minutes</span>
-										<div>
-											<button type="button" id="session-increment" class="btn btn-primary">+</button>
-											<button type="button" id="session-decrement" class="btn btn-danger">-</button>
-										</div>
-									</div>
-									<div class="col text-center">
-										<div id="break-label" class="font-weight-bold">Break Length</div>
-										<span id="break-length">5</span> <span id="break-unit">minutes</span>
-										<div>
-											<button type="button" id="break-increment" class="btn btn-primary">+</button>
-											<button type="button" id="break-decrement" class="btn btn-danger">-</button>
+								<div class="col text-center align-self-center">
+									<div class="card bg-light">
+										<div class="card-body">
+											<div id="timer-label" class="fw-bold text-center m-0">Session</div>
+											<h5 id="time-left" class="card-title text-center m-0">25:00</h5>
 										</div>
 									</div>
 								</div>
+								<div class="col text-center align-self-center">
+									<button type="button" id="reset" class="btn btn-dark">Reset</button>
+								</div>
 							</div>
 						</div>
-						<p id="credits" class="mt-2 mb-0">(Audio source: <a href="https://codepen.io/freeCodeCamp/full/XpKrrW" target="_blank">FCC: React Pomodoro Clock</a>)</p>
 					</div>
+					<div class="row">
+						<div class="col">
+							<div class="row">
+								<div class="col text-center">
+									<div id="session-label" class="fw-bold">Session Length</div>
+									<span id="session-length">25</span> <span id="session-unit">minutes</span>
+									<div>
+										<button type="button" id="session-increment" class="btn btn-primary">+</button>
+										<button type="button" id="session-decrement" class="btn btn-danger">-</button>
+									</div>
+								</div>
+								<div class="col text-center">
+									<div id="break-label" class="fw-bold">Break Length</div>
+									<span id="break-length">5</span> <span id="break-unit">minutes</span>
+									<div>
+										<button type="button" id="break-increment" class="btn btn-primary">+</button>
+										<button type="button" id="break-decrement" class="btn btn-danger">-</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<p id="credits" class="mt-2 mb-0 text-center">(Audio source: <a href="https://codepen.io/freeCodeCamp/full/XpKrrW" target="_blank">FCC: React Pomodoro Clock</a>)</p>
 				</div>
 			</div>
 		</div>
