@@ -10,23 +10,23 @@ var timer = false;
 var beep;
 
 function startTimer() {
-	$('#start_stop').html('Stop');
+	document.querySelector('#start_stop').textContent = 'Stop';
 
 	timer = setInterval(function() {
 		if (time[type].getSeconds() === 0 && time[type].getMinutes() === 0 && time[type].getHours() === 0) {
 			beep.play();
-			time[type] = new Date(0, 0, 0, 0, parseInt($('#' + type + '-length').html()));
+			time[type] = new Date(0, 0, 0, 0, parseInt(document.querySelector('#' + type + '-length').textContent));
 			switchType();
 		} else {
 			time[type].setSeconds(time[type].getSeconds() - 1);
 		}
 
-		$('#time-left').html((time[type].getHours() === 1 ? 60 : pad(time[type].getMinutes())) + ':' + pad(time[type].getSeconds()));
+		document.querySelector('#time-left').textContent = (time[type].getHours() === 1 ? 60 : pad(time[type].getMinutes())) + ':' + pad(time[type].getSeconds());
 	}, 1000);
 }
 
 function stopTimer() {
-	$('#start_stop').html('Start');
+	document.querySelector('#start_stop').textContent = 'Start';
 
 	clearInterval(timer);
 	timer = false;
@@ -34,7 +34,7 @@ function stopTimer() {
 
 function switchType() {
 	type = (type == 'session' ? 'break' : 'session');
-	$('#timer-label').html(type.charAt(0).toUpperCase() + type.substr(1));
+	document.querySelector('#timer-label').textContent = type.charAt(0).toUpperCase() + type.substring(1);
 }
 
 function handleOperation(typeThis, operator) {
@@ -44,16 +44,16 @@ function handleOperation(typeThis, operator) {
 	if (acceptedValue) {
 		time[typeThis].setMinutes(value);
 
-		if ($('#timer-label').html().toLowerCase() == typeThis) {
-			$('#time-left').html((time[typeThis].getHours() === 1 ? 60 : pad(time[typeThis].getMinutes())) + ':' + pad(time[typeThis].getSeconds()));
+		if (document.querySelector('#timer-label').textContent.toLowerCase() == typeThis) {
+			document.querySelector('#time-left').textContent = (time[typeThis].getHours() === 1 ? 60 : pad(time[typeThis].getMinutes())) + ':' + pad(time[typeThis].getSeconds());
 		}
 
-		$('#' + typeThis + '-length').html(time[typeThis].getHours() === 1 ? 60 : time[typeThis].getMinutes());
+		document.querySelector('#' + typeThis + '-length').textContent = (time[typeThis].getHours() === 1 ? 60 : time[typeThis].getMinutes());
 
 		if ((time[typeThis].getHours() === 1 ? 60 : time[typeThis].getMinutes()) === 1) {
-			$('#' + typeThis + '-unit').html('minute');
+			document.querySelector('#' + typeThis + '-unit').textContent = 'minute';
 		} else {
-			$('#' + typeThis + '-unit').html('minutes');
+			document.querySelector('#' + typeThis + '-unit').textContent = 'minutes';
 		}
 	}
 }
@@ -69,10 +69,10 @@ function pad(n) {
 	return (n < 10 ? '0' + n : n);
 }
 
-$(document).ready(function() {
-	beep = $('#beep')[0];
+document.addEventListener('DOMContentLoaded', (event) => {
+	beep = document.querySelector('#beep');
 
-	$('#reset').click(function() {
+	document.querySelector('#reset').addEventListener('click', (event2) => {
 		stopBeep();
 
 		if (timer) {
@@ -85,14 +85,14 @@ $(document).ready(function() {
 			break: new Date(0, 0, 0, 0, 5)
 		};
 
-		$('#timer-label').html('Session');
-		$('#time-left').html('25:00');
-		$('#session-length').html(25);
-		$('#break-length').html(5);
-		$('#session-unit, #break-unit').html('minutes');
+		document.querySelector('#timer-label').textContent = 'Session';
+		document.querySelector('#time-left').textContent = '25:00';
+		document.querySelector('#session-length').textContent = '25';
+		document.querySelector('#break-length').textContent = '5';
+		document.querySelectorAll('#session-unit, #break-unit').forEach(e => e.textContent = 'minutes');
 	});
 
-	$('#start_stop').click(function() {
+	document.querySelector('#start_stop').addEventListener('click', (event2) => {
 		if (timer) {
 			stopBeep();
 			stopTimer();
@@ -101,19 +101,19 @@ $(document).ready(function() {
 		}
 	});
 
-	$('#session-increment').click(function() {
+	document.querySelector('#session-increment').addEventListener('click', (event2) => {
 		handleOperation('session', '+');
 	});
 
-	$('#session-decrement').click(function() {
+	document.querySelector('#session-decrement').addEventListener('click', (event2) => {
 		handleOperation('session', '-');
 	});
 
-	$('#break-increment').click(function() {
+	document.querySelector('#break-increment').addEventListener('click', (event2) => {
 		handleOperation('break', '+');
 	});
 
-	$('#break-decrement').click(function() {
+	document.querySelector('#break-decrement').addEventListener('click', (event2) => {
 		handleOperation('break', '-');
 	});
 });
